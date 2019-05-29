@@ -17,5 +17,7 @@ class CARRIARMATI_API AControllerCarroGiocatore : public APlayerController
 
 public:
 	ACarro* GetControlledTank() const;
+
+	void BeginPlay() override;	//override controlla che BeginPlay si trova più in alto nella gerarchia
 	
 };
