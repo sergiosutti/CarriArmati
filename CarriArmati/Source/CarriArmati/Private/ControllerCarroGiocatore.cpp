@@ -9,11 +9,11 @@ void AControllerCarroGiocatore::BeginPlay()
 	auto CarroControllato = GetControlledTank();
 	if (!CarroControllato)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Buongiorno"));
+		UE_LOG(LogTemp, Warning, TEXT("Controller giocatore non sta possedendo"));
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Sto controllando %s"), *(CarroControllato->GetName()));
+		UE_LOG(LogTemp, Warning, TEXT("Controller giocatore sta possedendo %s"), *(CarroControllato->GetName()));
 	}
 }
 
