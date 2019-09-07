@@ -15,7 +15,10 @@ class CARRIARMATI_API AControllerCarroAI : public AAIController
 {
 	GENERATED_BODY()
 	
+private:
 	virtual void BeginPlay() override;
 
 	ACarro* GetControlledTank() const;
+
+	ACarro* GetPlayerTank() const;
 };

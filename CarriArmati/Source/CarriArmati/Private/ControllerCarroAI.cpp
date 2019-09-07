@@ -8,18 +8,29 @@ void AControllerCarroAI::BeginPlay()
 {
 	Super::BeginPlay();
 
-	auto CarroControllato = GetControlledTank();
-	if (!CarroControllato)
+	auto PlayerTank = GetPlayerTank();
+	if (!PlayerTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Controller AI non sta possedendo"));
+		UE_LOG(LogTemp, Warning, TEXT("Controller non trova PT"));
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AI sta possedendo %s"), *(CarroControllato->GetName()));
+		UE_LOG(LogTemp, Warning, TEXT("AI ha trovato PT %s"), *(PlayerTank->GetName()));
 	}
 }
 
 ACarro* AControllerCarroAI::GetControlledTank() const
 {
 	return Cast<ACarro>(GetPawn());
+}
+
+ACarro* AControllerCarroAI::GetPlayerTank() const
+{
+	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	if (!PlayerPawn)
+	{
+		return(nullptr);
+	}
+
+	return Cast<ACarro>(PlayerPawn);
 }

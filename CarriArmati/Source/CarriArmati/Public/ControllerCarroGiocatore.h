@@ -19,5 +19,10 @@ public:
 	ACarro* GetControlledTank() const;
 
 	virtual void BeginPlay() override;	//override controlla che BeginPlay si trova più in alto nella gerarchia
+
+	virtual void Tick(float DeltaTime) override;
+
+	//Comincia a muovere la canna verso il mirino
+	void AimTowardsCrosshair();
 	
 };

@@ -17,7 +17,22 @@ void AControllerCarroGiocatore::BeginPlay()
 	}
 }
 
+void AControllerCarroGiocatore::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	AimTowardsCrosshair();
+}
+
+
 ACarro* AControllerCarroGiocatore::GetControlledTank() const
 {
 	return Cast<ACarro>(GetPawn());
+}
+
+void AControllerCarroGiocatore::AimTowardsCrosshair()
+{
+	if (!GetControlledTank())
+	{
+		return;
+	}
 }
