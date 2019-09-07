@@ -15,7 +15,7 @@ class CARRIARMATI_API AControllerCarroGiocatore : public APlayerController
 {
 	GENERATED_BODY()
 
-public:
+private:
 	ACarro* GetControlledTank() const;
 
 	virtual void BeginPlay() override;	//override controlla che BeginPlay si trova più in alto nella gerarchia
@@ -24,5 +24,12 @@ public:
 
 	//Comincia a muovere la canna verso il mirino
 	void AimTowardsCrosshair();
+
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
 	
+	UPROPERTY(EditAnywhere)
+		float CrosshairXLocation = 0.5;
+
+	UPROPERTY(EditAnywhere)
+		float CrosshairYLocation = 0.3333;
 };

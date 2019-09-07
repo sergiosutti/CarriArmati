@@ -35,4 +35,23 @@ void AControllerCarroGiocatore::AimTowardsCrosshair()
 	{
 		return;
 	}
+
+	FVector HitLocation;	//paramentro out
+	if (GetSightRayHitLocation(HitLocation))	//ray trace
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
+	}
+}
+
+//fa il linetrace e ritorna true se colpisce il terreno
+bool AControllerCarroGiocatore::GetSightRayHitLocation(FVector& HitLocation) const
+{
+	//trova posizione del mirino
+	int32 ViewportSizeX, ViewportSizeY;
+	GetViewportSize(ViewportSizeX, ViewportSizeY);
+	auto ScreenLocation = FVector2D(ViewportSizeX * CrosshairXLocation, ViewportSizeY * CrosshairYLocation);
+	UE_LOG(LogTemp, Warning, TEXT("Screenlocation: %s"), *ScreenLocation.ToString());
+	//deproject la posizione del mirino ad una direzione
+	//linetrace e vediamo cosa stiamo puntando
+	return true;
 }
