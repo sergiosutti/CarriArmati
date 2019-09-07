@@ -39,7 +39,7 @@ void AControllerCarroGiocatore::AimTowardsCrosshair()
 	FVector HitLocation;	//paramentro out
 	if (GetSightRayHitLocation(HitLocation))	//ray trace
 	{
-		UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
+		GetControlledTank()->AimAt(HitLocation);
 	}
 }
 

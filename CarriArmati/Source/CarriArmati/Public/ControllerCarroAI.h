@@ -18,6 +18,8 @@ class CARRIARMATI_API AControllerCarroAI : public AAIController
 private:
 	virtual void BeginPlay() override;
 
+	virtual void Tick(float DeltaSeconds) override;
+
 	ACarro* GetControlledTank() const;
 
 	ACarro* GetPlayerTank() const;

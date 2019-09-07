@@ -19,6 +19,19 @@ void AControllerCarroAI::BeginPlay()
 	}
 }
 
+void AControllerCarroAI::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		//TODO muoviti verso il giocatore
+
+		//mira
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		//TODO spara
+	}
+}
+
 ACarro* AControllerCarroAI::GetControlledTank() const
 {
 	return Cast<ACarro>(GetPawn());

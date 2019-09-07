@@ -28,6 +28,11 @@ void ACarro::Tick(float DeltaTime)
 void ACarro::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+}
 
+void ACarro::AimAt(FVector HitLocation)
+{
+	auto OurTankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s sta mirando a %s"), *OurTankName, *HitLocation.ToString());
 }
 
