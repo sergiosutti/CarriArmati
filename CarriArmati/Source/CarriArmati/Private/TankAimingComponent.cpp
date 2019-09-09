@@ -49,15 +49,18 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();	//prendi l'unitvector
-
-		//auto TankName = GetOwner()->GetName();
-		//UE_LOG(LogTemp, Warning, TEXT("%s mirando a %s"),*TankName, *AimDirection.ToString());
-
 		MoveBarrelTowards(AimDirection);
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: soluzione trovata."),Time);
 	}
-	//se non ha trovato una soluzione non fare niente
+	else 	//se non ha trovato una soluzione non fare niente
+	{
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: soluzione non trovata."), Time);
+	}
+
 	
-	}
+}
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 {
