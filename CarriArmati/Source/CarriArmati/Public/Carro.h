@@ -2,12 +2,13 @@
 
 #pragma once
 
-#include "TankAimingComponent.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Carro.generated.h"	//ultimo
 
 class UTankBarrel;
+class UTankAimingComponent;
 
 UCLASS()
 class CARRIARMATI_API ACarro : public APawn

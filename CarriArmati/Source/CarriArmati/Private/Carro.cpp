@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Carro.h"
+#include "TankAimingComponent.h"
 
 // Sets default values
 ACarro::ACarro()

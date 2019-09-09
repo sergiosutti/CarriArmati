@@ -2,10 +2,11 @@
 
 #pragma once
 
-#include "Carro.h"
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "ControllerCarroGiocatore.generated.h"	//ultimo include per forza
+
+class ACarro;
 
 /**
  * 

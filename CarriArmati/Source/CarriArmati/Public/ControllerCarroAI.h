@@ -2,10 +2,11 @@
 
 #pragma once
 
-#include "Carro.h"
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "ControllerCarroAI.generated.h"
+
+class ACarro;
 
 /**
  * 

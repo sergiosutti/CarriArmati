@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ControllerCarroAI.h"
+#include "Carro.h"
 #include "CarriArmati.h"
+
 
 
 void AControllerCarroAI::BeginPlay()
