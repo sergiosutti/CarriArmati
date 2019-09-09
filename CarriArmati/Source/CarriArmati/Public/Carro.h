@@ -7,6 +7,8 @@
 #include "GameFramework/Pawn.h"
 #include "Carro.generated.h"	//ultimo
 
+class UTankBarrel;
+
 UCLASS()
 class CARRIARMATI_API ACarro : public APawn
 {
@@ -16,7 +18,7 @@ public:
 	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;

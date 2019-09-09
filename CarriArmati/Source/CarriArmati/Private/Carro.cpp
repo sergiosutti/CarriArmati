@@ -12,7 +12,7 @@ ACarro::ACarro()
 
 }
 
-void ACarro::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void ACarro::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
