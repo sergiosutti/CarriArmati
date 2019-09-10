@@ -46,15 +46,14 @@ void ACarro::AimAt(FVector HitLocation)
 
 void ACarro::Fire()
 {
-	auto Time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Sparato!"), Time);
-
 	if (!Barrel) { return; }
 
 	//Spawn projectile
-	GetWorld()->SpawnActor<AProjectile>(
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("Projectile")),
 		Barrel->GetSocketRotation(FName("Projectile"))
 		);
+	
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
