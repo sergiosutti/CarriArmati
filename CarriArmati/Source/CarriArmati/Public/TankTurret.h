@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(meta = (BlueprintSpawnableComponent), hidecategories = ("Collision"))
+UCLASS(meta = (BlueprintSpawnableComponent))
 class CARRIARMATI_API UTankTurret : public UStaticMeshComponent
 {
 	GENERATED_BODY()
@@ -21,5 +21,4 @@ public:
 private:
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 		float MaxDegreesPerSecond = 25;
-	
 };
