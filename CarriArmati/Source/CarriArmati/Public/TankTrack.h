@@ -16,6 +16,8 @@ class CARRIARMATI_API UTankTrack : public UStaticMeshComponent
 
 public:
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void SetThrottle(float Throttle);
-	
+		void SetThrottle(float Throttle);
+
+	UPROPERTY(EditDefaultsOnly)	
+		float TrackMaxDrivingForce = 400000; //F=ma (carro 40000 kg)
 };
