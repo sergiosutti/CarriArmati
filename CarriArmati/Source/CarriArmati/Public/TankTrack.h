@@ -19,5 +19,5 @@ public:
 		void SetThrottle(float Throttle);
 
 	UPROPERTY(EditDefaultsOnly)	
-		float TrackMaxDrivingForce = 400000; //F=ma (carro 40000 kg)
+		float TrackMaxDrivingForce = 40000000; //F=ma (carro 40000 kg)
 };

@@ -81,7 +81,7 @@ bool AControllerCarroGiocatore::GetLookVectorHitLocation(FVector LookDirection, 
 		return true;
 	}
 	HitLocation = FVector(0); //linetrace non ha funzionato
-	UE_LOG(LogTemp, Warning, TEXT("Non trovo niente"));
+	//UE_LOG(LogTemp, Warning, TEXT("Non trovo niente"));
 	return false; //linetrace non ha funzionato
 }
 
