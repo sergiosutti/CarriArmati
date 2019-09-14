@@ -7,7 +7,7 @@
 #include "TankTrack.generated.h"
 
 /**
- * //qua va l'info riguardante la classe
+ * ciao
  */
 UCLASS(meta = (BlueprintSpawnableComponent))
 class CARRIARMATI_API UTankTrack : public UStaticMeshComponent
