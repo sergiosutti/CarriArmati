@@ -20,7 +20,8 @@ void AControllerCarroAI::Tick(float DeltaTime)
 
 	if (PlayerTank)
 	{
-		//TODO muoviti verso il giocatore
+		//muoviti verso il giocatore
+		MoveToActor(PlayerTank, AcceptanceRadius);	//controllare raggio
 
 		//mira
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());

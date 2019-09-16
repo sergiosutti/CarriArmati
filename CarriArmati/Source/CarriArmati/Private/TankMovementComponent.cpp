@@ -9,6 +9,13 @@ void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* 
 	RightTrack = RightTrackToSet;
 }
 
+void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
+{
+	//non serve Super perché stiamo sostituendo la funzione
+	auto TankName = GetOwner()->GetName();
+	auto MoveVelocityString = MoveVelocity.ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s vettore: %s"), *TankName, *MoveVelocityString);	//TODO trovare il motivo per cui non stampa il log
+}
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
