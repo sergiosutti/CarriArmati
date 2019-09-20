@@ -16,8 +16,13 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
 	auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);	//prodotto scalare per trovare quanto sono paralleli, vedi coseno tra i due vettori
-
 	IntendMoveForward(ForwardThrow);
+
+	auto RightTrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;	//.Z perché il prodotto vettoriale da un vettore come soluzione e non uno scalare
+	IntendTurnRight(RightTrow);
+
+
+
 }
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
