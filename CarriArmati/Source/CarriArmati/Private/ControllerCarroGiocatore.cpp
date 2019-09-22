@@ -1,12 +1,23 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ControllerCarroGiocatore.h"
+#include "TankAimingComponent.h"
 #include "Carro.h"
 
 void AControllerCarroGiocatore::BeginPlay()
 {
 	Super::BeginPlay();
+	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	if (AimingComponent)
+	{
+		FoundAimingComponenent(AimingComponent);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("male"))
+	}
 
+	/*
 	auto CarroControllato = GetControlledTank();
 	if (!CarroControllato)
 	{
@@ -16,6 +27,7 @@ void AControllerCarroGiocatore::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Controller giocatore sta possedendo %s"), *(CarroControllato->GetName()));
 	}
+	*/
 }
 
 void AControllerCarroGiocatore::Tick(float DeltaTime)

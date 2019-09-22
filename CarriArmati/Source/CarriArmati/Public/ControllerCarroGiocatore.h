@@ -7,6 +7,7 @@
 #include "ControllerCarroGiocatore.generated.h"	//ultimo include per forza
 
 class ACarro;
+class UTankAimingComponent;
 
 /**
  * 
@@ -19,6 +20,9 @@ class CARRIARMATI_API AControllerCarroGiocatore : public APlayerController
 protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 		ACarro* GetControlledTank() const;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+		void FoundAimingComponenent(UTankAimingComponent* AimCompRef);
 
 private:
 	virtual void BeginPlay() override;	//override controlla che BeginPlay si trova più in alto nella gerarchia
