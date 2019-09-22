@@ -16,9 +16,11 @@ class CARRIARMATI_API AControllerCarroGiocatore : public APlayerController
 {
 	GENERATED_BODY()
 
-private:
-	ACarro* GetControlledTank() const;
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+		ACarro* GetControlledTank() const;
 
+private:
 	virtual void BeginPlay() override;	//override controlla che BeginPlay si trova più in alto nella gerarchia
 
 	virtual void Tick(float DeltaTime) override;
