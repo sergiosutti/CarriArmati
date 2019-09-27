@@ -3,8 +3,7 @@
 #include "ControllerCarroAI.h"
 #include "Carro.h"
 #include "CarriArmati.h"
-
-
+//dipende anche da movement component attraverso il pathfinding
 
 void AControllerCarroAI::BeginPlay()
 {
@@ -18,7 +17,7 @@ void AControllerCarroAI::Tick(float DeltaTime)
 	auto PlayerTank = Cast<ACarro>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	auto ControlledTank = Cast<ACarro>(GetPawn());
 
-	if (PlayerTank)
+	if (ensure(PlayerTank))
 	{
 		//muoviti verso il giocatore
 		MoveToActor(PlayerTank, AcceptanceRadius);	//controllare raggio

@@ -8,7 +8,7 @@ void AControllerCarroGiocatore::BeginPlay()
 {
 	Super::BeginPlay();
 	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
-	if (AimingComponent)
+	if (ensure(AimingComponent))
 	{
 		FoundAimingComponenent(AimingComponent);
 	}
@@ -44,10 +44,7 @@ ACarro* AControllerCarroGiocatore::GetControlledTank() const
 
 void AControllerCarroGiocatore::AimTowardsCrosshair()
 {
-	if (!GetControlledTank())
-	{
-		return;
-	}
+	if (!ensure(GetControlledTank())) { return; }
 
 	FVector HitLocation;	//paramentro out
 	if (GetSightRayHitLocation(HitLocation))	//ray trace
