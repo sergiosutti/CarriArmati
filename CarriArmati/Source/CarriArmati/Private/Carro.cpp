@@ -3,7 +3,6 @@
 #include "Carro.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
-#include "TankAimingComponent.h"
 
 // Sets default values
 ACarro::ACarro()
@@ -16,12 +15,6 @@ ACarro::ACarro()
 void ACarro::BeginPlay()
 {
 	Super::BeginPlay();	//importantissimo
-}
-
-void ACarro::AimAt(FVector HitLocation)
-{
-	if (!ensure(TankAimingComponent)) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ACarro::Fire()

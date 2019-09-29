@@ -6,7 +6,6 @@
 #include "GameFramework/PlayerController.h"
 #include "ControllerCarroGiocatore.generated.h"	//ultimo include per forza
 
-class ACarro;
 class UTankAimingComponent;
 
 /**
@@ -18,9 +17,6 @@ class CARRIARMATI_API AControllerCarroGiocatore : public APlayerController
 	GENERATED_BODY()
 
 protected:
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-		ACarro* GetControlledTank() const;
-
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 		void FoundAimingComponenent(UTankAimingComponent* AimCompRef);
 

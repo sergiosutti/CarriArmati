@@ -2,20 +2,15 @@
 
 #include "ControllerCarroGiocatore.h"
 #include "TankAimingComponent.h"
-#include "Carro.h"
 
 void AControllerCarroGiocatore::BeginPlay()
 {
 	Super::BeginPlay();
-	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
-	if (ensure(AimingComponent))
-	{
-		FoundAimingComponenent(AimingComponent);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("male"))
-	}
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AimingComponent)) { return; }
+	
+	FoundAimingComponenent(AimingComponent);
+	
 
 	/*
 	auto CarroControllato = GetControlledTank();
@@ -36,20 +31,15 @@ void AControllerCarroGiocatore::Tick(float DeltaTime)
 	AimTowardsCrosshair();
 }
 
-
-ACarro* AControllerCarroGiocatore::GetControlledTank() const
-{
-	return Cast<ACarro>(GetPawn());
-}
-
 void AControllerCarroGiocatore::AimTowardsCrosshair()
 {
-	if (!ensure(GetControlledTank())) { return; }
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AimingComponent)) { return; }
 
 	FVector HitLocation;	//paramentro out
 	if (GetSightRayHitLocation(HitLocation))	//ray trace
 	{
-		GetControlledTank()->AimAt(HitLocation);
+		AimingComponent->AimAt(HitLocation);
 	}
 }
 
