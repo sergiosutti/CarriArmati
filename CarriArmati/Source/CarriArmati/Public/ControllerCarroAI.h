@@ -6,8 +6,6 @@
 #include "AIController.h"
 #include "ControllerCarroAI.generated.h"
 
-class ACarro;
-
 /**
  * 
  */

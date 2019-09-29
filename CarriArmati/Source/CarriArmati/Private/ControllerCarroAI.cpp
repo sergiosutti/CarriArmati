@@ -18,15 +18,14 @@ void AControllerCarroAI::Tick(float DeltaTime)
 	auto ControlledTank = GetPawn();
 
 	if (!ensure(PlayerTank && ControlledTank)) { return; }
-	{
-		//muoviti verso il giocatore
-		MoveToActor(PlayerTank, AcceptanceRadius);	//controllare raggio
+	
+	//muoviti verso il giocatore
+	MoveToActor(PlayerTank, AcceptanceRadius);	//controllare raggio
 
-		//mira
-		auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
-		AimingComponent->AimAt(PlayerTank->GetActorLocation());
+	//mira
+	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
+	AimingComponent->AimAt(PlayerTank->GetActorLocation());
 
-		//spara
-		//ControlledTank->Fire();
-	}
+	//spara
+	AimingComponent->Fire();
 }
